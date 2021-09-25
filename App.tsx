@@ -4,7 +4,8 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 // Native Comps
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
+// Components
 import { HomeScreen } from "./src/screens";
 
 export default function App() {
