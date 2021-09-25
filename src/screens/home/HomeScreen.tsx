@@ -1,22 +1,35 @@
 import React, { FunctionComponent } from "react";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { StyleSheet, Image, View, SafeAreaView } from "react-native";
+import tw from "tailwind-react-native-classnames";
 
 interface IProps {}
 
 export const HomeScreen: FunctionComponent = (props: IProps) => {
   return (
-    <SafeAreaView>
-      <Text style={styles.text}>I am the HomeScreen</Text>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.viewContainer}>
+        <Image
+          style={styles.image}
+          source={{
+            uri: "https://links.papareact.com/gzs",
+          }}
+        />
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  text: {
-    color: "violet",
-    textAlign: "center",
-    marginTop: 100,
-    fontSize: 32,
-    fontWeight: "500",
+  container: {
+    backgroundColor: "white",
+    height: "100%",
+  },
+  viewContainer: {
+    padding: 20,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    resizeMode: "contain",
   },
 });
