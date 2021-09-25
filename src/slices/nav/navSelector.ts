@@ -1,4 +1,4 @@
-import { State } from "../../store/rootReducer";
+import { State } from "../../../store/rootReducer";
 
 export const selectOrigin = (state: State) => state.nav.origin;
 export const selectDestination = (state: State) => state.nav.destination;
