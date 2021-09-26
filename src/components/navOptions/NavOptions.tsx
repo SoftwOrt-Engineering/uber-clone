@@ -1,32 +1,12 @@
 import React, { FunctionComponent } from "react";
-// Types
-import { NavOptionEntry } from "../../slices/nav/types";
 // Native Comps
-import {
-  FlatList,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-
-const data: NavOptionEntry[] = [
-  {
-    id: "123",
-    title: "Get a ride",
-    image: "https://links.papareact.com/3pn",
-    screen: "MapScreen",
-  },
-  {
-    id: "456",
-    title: "Order Food",
-    image: "https://links.papareact.com/28w",
-    screen: "EatsScreen",
-  },
-];
+import { FlatList, StyleSheet, TouchableOpacity } from "react-native";
+import { screenData } from "../../../static/navMenu/screenData";
+import { NavOptionsItem } from "../navOptionsItem";
 
 export const NavOptions: FunctionComponent = () => {
+  const data = screenData();
+
   return (
     <FlatList
       data={data}
@@ -34,15 +14,7 @@ export const NavOptions: FunctionComponent = () => {
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
         <TouchableOpacity style={styles.listItem}>
-          <View>
-            <Image
-              style={styles.image}
-              source={{
-                uri: item.image,
-              }}
-            />
-            <Text style={styles.text}>{item.title}</Text>
-          </View>
+          <NavOptionsItem entry={item} />
         </TouchableOpacity>
       )}
     />
@@ -58,15 +30,5 @@ const styles = StyleSheet.create({
     backgroundColor: "lightgrey",
     margin: 8,
     width: 160,
-  },
-  image: {
-    width: 120,
-    height: 120,
-    resizeMode: "contain",
-  },
-  text: {
-    marginTop: 8,
-    fontSize: 16,
-    fontWeight: "600",
   },
 });
