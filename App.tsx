@@ -10,7 +10,7 @@ import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
 // Components
-import { HomeScreen } from "./src/screens";
+import { StackNavigator } from "./src/navigation";
 
 export default function App() {
   return (
@@ -18,7 +18,7 @@ export default function App() {
       <NavigationContainer>
         <SafeAreaProvider>
           <StatusBar style="auto" />
-          <HomeScreen />
+          <StackNavigator />
         </SafeAreaProvider>
       </NavigationContainer>
     </Provider>
