@@ -1,6 +1,9 @@
 import React, { FunctionComponent } from "react";
-import { StyleSheet, Image, View, SafeAreaView } from "react-native";
+// Helper
 import tw from "tailwind-react-native-classnames";
+// Native Comps
+import { StyleSheet, Image, View, SafeAreaView } from "react-native";
+// Components
 import { NavOptions } from "../../components/navOptions";
 
 interface IProps {}
