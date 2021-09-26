@@ -1,6 +1,6 @@
 // import { FriendsList } from "./friendsList";
 
-export type RouteParamListMap = {
+export type RouteParamListEats = {
   entry: {
     stats: {};
   };

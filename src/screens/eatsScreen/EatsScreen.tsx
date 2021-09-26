@@ -2,16 +2,16 @@ import React, { FunctionComponent } from "react";
 // Helper
 import { RouteProp, useRoute } from "@react-navigation/native";
 // Types
-import { RouteParamListMap } from "./types";
+import { RouteParamListEats } from "./types";
 // Native Comps
 import { StyleSheet, Text, View } from "react-native";
 
-export const MapScreen: FunctionComponent = () => {
-  const route = useRoute<RouteProp<RouteParamListMap, "entry">>();
+export const EatsScreen: FunctionComponent = () => {
+  const route = useRoute<RouteProp<RouteParamListEats, "entry">>();
 
   return (
     <View>
-      <Text>MapScreen</Text>
+      <Text>EatsScreen</Text>
     </View>
   );
 };

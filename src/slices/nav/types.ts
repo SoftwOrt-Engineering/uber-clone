@@ -10,17 +10,17 @@ export type NavOptionEntry = {
   id: string;
   title: string;
   image: string;
-  screen: "MapScreen" | "EatsScreen";
+  screen: "EatsScreen" | "MapScreen";
 };
 
 export type RootStackParamList = {
+  EatsScreen: undefined;
   MapScreen: {
     entry: NavOptionEntry;
   };
-  EatsScreen: undefined;
 };
 
 export type MainScreenProp = NativeStackNavigationProp<
   RootStackParamList,
-  "MapScreen" | "EatsScreen"
+  "EatsScreen" | "MapScreen"
 >;

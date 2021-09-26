@@ -3,9 +3,9 @@ import React, { FunctionComponent } from "react";
 import { MainScreenProp } from "../../slices/nav/types";
 // Helper
 import { useNavigation } from "@react-navigation/core";
+import { screenData } from "../../../static/navMenu/screenData";
 // Native Comps
 import { FlatList, StyleSheet, TouchableOpacity } from "react-native";
-import { screenData } from "../../../static/navMenu/screenData";
 import { NavOptionsItem } from "../navOptionsItem";
 
 export const NavOptions: FunctionComponent = () => {
