@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from "react";
 // Helper
 import tw from "tailwind-react-native-classnames";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import { GOOGLE_MAPS_KEY } from "@env";
 // Native Comps
 import { StyleSheet, Image, View, SafeAreaView } from "react-native";
 // Components
