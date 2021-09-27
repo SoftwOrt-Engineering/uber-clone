@@ -11,9 +11,19 @@ export const MapScreen: FunctionComponent = () => {
 
   return (
     <View>
-      <Text>MapScreen</Text>
+      <View style={styles.mapContainer}>
+        <Text>MapScreen</Text>
+      </View>
+      <View style={styles.lowerContainer}></View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  mapContainer: {
+    height: "50%",
+  },
+  lowerContainer: {
+    height: "50%",
+  },
+});

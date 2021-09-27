@@ -1,16 +1,11 @@
 import React, { FunctionComponent } from "react";
-// Helper
-import tw from "tailwind-react-native-classnames";
-import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-import { GOOGLE_MAPS_KEY } from "@env";
 // Native Comps
 import { StyleSheet, Image, View, SafeAreaView } from "react-native";
 // Components
 import { NavOptions } from "../../components/navOptions";
+import { WhereFrom } from "../../components/inputs";
 
-interface IProps {}
-
-export const HomeScreen: FunctionComponent = (props: IProps) => {
+export const HomeScreen: FunctionComponent = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.viewContainer}>
@@ -20,6 +15,7 @@ export const HomeScreen: FunctionComponent = (props: IProps) => {
             uri: "https://links.papareact.com/gzs",
           }}
         />
+        <WhereFrom />
         <NavOptions />
       </View>
     </SafeAreaView>

@@ -1,7 +1,8 @@
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { Point } from "react-native-google-places-autocomplete";
 
 export type NavState = {
-  origin: string | null;
+  origin: OriginType;
   destination: string | null;
   travelTimeInformation: string | null;
 };
@@ -24,3 +25,8 @@ export type MainScreenProp = NativeStackNavigationProp<
   RootStackParamList,
   "EatsScreen" | "MapScreen"
 >;
+
+export type OriginType = {
+  location: Point | null;
+  description: string | null;
+};
