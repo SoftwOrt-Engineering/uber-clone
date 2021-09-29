@@ -16,10 +16,13 @@ export const Map: FunctionComponent = () => {
         style={styles.mapView}
         mapType="mutedStandard"
         initialRegion={{
-          latitude: origin && origin.location ? origin.location.lat : 0,
-          longitude: origin && origin.location ? origin.location.lng : 0,
-          latitudeDelta: 0.005,
-          longitudeDelta: 0.005,
+          latitude: origin && origin.location ? origin.location.lat : 48.137154,
+          longitude:
+            origin && origin.location ? origin.location.lng : 11.576124,
+          latitudeDelta:
+            origin && origin.location && origin.location.lng ? 0.005 : 0.07,
+          longitudeDelta:
+            origin && origin.location && origin.location.lng ? 0.005 : 0.07,
         }}
       />
     </View>
