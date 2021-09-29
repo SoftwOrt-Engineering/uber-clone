@@ -2,7 +2,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Point } from "react-native-google-places-autocomplete";
 
 export type NavState = {
-  origin: OriginType;
+  origin: OriginType | null;
   destination: string | null;
   travelTimeInformation: string | null;
 };

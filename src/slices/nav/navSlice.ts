@@ -17,10 +17,10 @@ export const navSlice = createSlice({
     setOrigin: (state, action: PayloadAction<OriginType>) => {
       state.origin = action.payload;
     },
-    setDestination: (state, action: PayloadAction<string | null>) => {
+    setDestination: (state, action) => {
       state.destination = action.payload;
     },
-    setTravelTimeInformation: (state, action: PayloadAction<string | null>) => {
+    setTravelTimeInformation: (state, action) => {
       state.travelTimeInformation = action.payload;
     },
   },

@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from "react";
 // Redux Toolkit
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../../hooks/reduxHooks";
 import { setOrigin, setDestination } from "../../../slices/nav/navSlice";
 // Helper
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { GOOGLE_MAPS_KEY } from "@env";
 
 export const WhereFrom: FunctionComponent = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <GooglePlacesAutocomplete
