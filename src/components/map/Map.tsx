@@ -29,6 +29,17 @@ export const Map: FunctionComponent = () => {
             left: 50,
           },
         });
+    } else if (origin && !destination) {
+      mapRef &&
+        mapRef.current &&
+        mapRef.current.fitToSuppliedMarkers(["origin"], {
+          edgePadding: {
+            top: 50,
+            right: 50,
+            bottom: 50,
+            left: 50,
+          },
+        });
     }
   }, [destination, origin]);
 

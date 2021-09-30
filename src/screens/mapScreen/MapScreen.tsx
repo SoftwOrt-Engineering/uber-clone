@@ -1,4 +1,7 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect } from "react";
+// Redux Toolkit
+import { useAppDispatch } from "../../hooks/reduxHooks";
+import { setDestination } from "../../slices/nav/navSlice";
 // Helper
 import { RouteProp, useRoute } from "@react-navigation/native";
 // Types
@@ -11,6 +14,11 @@ import { StackNavMapScreen } from "../../navigation";
 
 export const MapScreen: FunctionComponent = () => {
   const route = useRoute<RouteProp<RouteParamListMap, "entry">>();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setDestination(null));
+  }, []);
 
   return (
     <View>
