@@ -5,7 +5,7 @@ import { getOrigin } from "../../slices/nav/navSelector";
 // Types
 import { MainScreenProp } from "../../slices/nav/types";
 // Helper
-import { useNavigation } from "@react-navigation/core";
+import { useNavigation } from "@react-navigation/native";
 import { screenData } from "../../../static/navMenu/screenData";
 // Native Comps
 import { FlatList, StyleSheet, TouchableOpacity } from "react-native";

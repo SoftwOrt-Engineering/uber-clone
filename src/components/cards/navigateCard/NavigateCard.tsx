@@ -2,22 +2,26 @@ import React, { FunctionComponent } from "react";
 // Redux Toolkit
 import { useAppDispatch } from "../../../hooks/reduxHooks";
 import { setDestination } from "../../../slices/nav/navSlice";
+// Types
+import { MainScreenProp } from "../../../slices/nav/types";
 // Helper
 import {
   GooglePlaceData,
   GooglePlaceDetail,
 } from "react-native-google-places-autocomplete";
+import { useNavigation } from "@react-navigation/native";
 // Native Comps
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 // Components
 import { WhereEver } from "../../inputs";
 
 export const NavigateCard: FunctionComponent = () => {
+  const navigation = useNavigation<MainScreenProp>();
   const dispatch = useAppDispatch();
 
   const handleOnPress = (
     data: GooglePlaceData,
-    detail: GooglePlaceDetail | null
+    detail: GooglePlaceDetail | null = null
   ) => {
     dispatch(
       setDestination({
@@ -25,7 +29,7 @@ export const NavigateCard: FunctionComponent = () => {
         description: data.description,
       })
     );
-    // dispatch(setDestination(null));
+    navigation.navigate("RideOptionsCard");
   };
 
   return (

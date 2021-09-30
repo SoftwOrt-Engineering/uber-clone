@@ -18,7 +18,7 @@ export const HomeScreen: FunctionComponent = () => {
 
   const handleOnPress = (
     data: GooglePlaceData,
-    detail: GooglePlaceDetail | null
+    detail: GooglePlaceDetail | null = null
   ) => {
     dispatch(
       setOrigin({

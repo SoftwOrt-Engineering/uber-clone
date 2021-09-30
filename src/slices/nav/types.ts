@@ -2,8 +2,8 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Point } from "react-native-google-places-autocomplete";
 
 export type NavState = {
-  origin: OriginType | null;
-  destination: string | null;
+  origin: MapsInfo | null;
+  destination: MapsInfo | null;
   travelTimeInformation: string | null;
 };
 
@@ -15,6 +15,7 @@ export type NavOptionEntry = {
 };
 
 export type RootStackParamList = {
+  RideOptionsCard: undefined;
   EatsScreen: undefined;
   MapScreen: {
     entry: NavOptionEntry;
@@ -23,10 +24,10 @@ export type RootStackParamList = {
 
 export type MainScreenProp = NativeStackNavigationProp<
   RootStackParamList,
-  "EatsScreen" | "MapScreen"
+  "EatsScreen" | "MapScreen" | "RideOptionsCard"
 >;
 
-export type OriginType = {
+export type MapsInfo = {
   location: Point | null;
   description: string | null;
 };
