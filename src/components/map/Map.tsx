@@ -1,14 +1,17 @@
 import React, { FunctionComponent } from "react";
 // Redux Toolkit
 import { useAppSelector } from "../../hooks/reduxHooks";
-import { getOrigin } from "../../slices/nav/navSelector";
+import { getDestination, getOrigin } from "../../slices/nav/navSelector";
 // Helper
 import MapView, { Marker } from "react-native-maps";
+import { GOOGLE_MAPS_KEY } from "@env";
 // Native Comps
 import { StyleSheet } from "react-native";
+import MapViewDirections from "react-native-maps-directions";
 
 export const Map: FunctionComponent = () => {
   const origin = useAppSelector(getOrigin);
+  const destination = useAppSelector(getDestination);
 
   return (
     <MapView
@@ -23,6 +26,15 @@ export const Map: FunctionComponent = () => {
           origin && origin.location && origin.location.lng ? 0.005 : 0.07,
       }}
     >
+      {origin && origin.location && destination && destination.location && (
+        <MapViewDirections
+          origin={origin.description ? origin.description : ""}
+          destination={destination.description ? destination.description : ""}
+          apikey={GOOGLE_MAPS_KEY}
+          strokeColor="black"
+          strokeWidth={3}
+        />
+      )}
       {origin && origin.location && (
         <Marker
           coordinate={{
