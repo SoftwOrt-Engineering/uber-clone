@@ -5,7 +5,7 @@ import { getOrigin } from "../../slices/nav/navSelector";
 // Helper
 import MapView, { Marker } from "react-native-maps";
 // Native Comps
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 
 export const Map: FunctionComponent = () => {
   const origin = useAppSelector(getOrigin);

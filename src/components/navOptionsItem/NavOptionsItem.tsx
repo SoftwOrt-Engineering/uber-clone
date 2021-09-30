@@ -7,11 +7,15 @@ import { Icon } from "react-native-elements";
 
 interface IProps {
   entry: NavOptionEntry;
+  disable: boolean;
 }
 
-export const NavOptionsItem: FunctionComponent<IProps> = ({ entry }) => {
+export const NavOptionsItem: FunctionComponent<IProps> = ({
+  entry,
+  disable,
+}) => {
   return (
-    <View>
+    <View style={{ opacity: disable ? 0.2 : 1 }}>
       <Image
         style={styles.image}
         source={{

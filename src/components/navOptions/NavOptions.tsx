@@ -1,4 +1,7 @@
 import React, { FunctionComponent } from "react";
+// Redux Toolkit
+import { useAppSelector } from "../../hooks/reduxHooks";
+import { getOrigin } from "../../slices/nav/navSelector";
 // Types
 import { MainScreenProp } from "../../slices/nav/types";
 // Helper
@@ -12,6 +15,9 @@ export const NavOptions: FunctionComponent = () => {
   const data = screenData();
   const navigation = useNavigation<MainScreenProp>();
 
+  // Selectors
+  const origin = useAppSelector(getOrigin);
+
   return (
     <FlatList
       data={data}
@@ -21,8 +27,9 @@ export const NavOptions: FunctionComponent = () => {
         <TouchableOpacity
           style={styles.listItem}
           onPress={() => navigation.navigate(item.screen)}
+          disabled={origin === null}
         >
-          <NavOptionsItem entry={item} />
+          <NavOptionsItem entry={item} disable={origin === null} />
         </TouchableOpacity>
       )}
     />
@@ -35,7 +42,7 @@ const styles = StyleSheet.create({
     paddingLeft: 24,
     paddingBottom: 32,
     paddingTop: 16,
-    backgroundColor: "lightgrey",
+    backgroundColor: "#e0e0e0",
     margin: 8,
     width: 160,
   },

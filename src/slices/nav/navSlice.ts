@@ -2,10 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { NavState, OriginType } from "./types";
 
 const initialState: NavState = {
-  origin: {
-    location: null,
-    description: null,
-  },
+  origin: null,
   destination: null,
   travelTimeInformation: null,
 };
