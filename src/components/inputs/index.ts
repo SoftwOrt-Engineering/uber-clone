@@ -1,1 +1,1 @@
-export { WhereFrom } from "./whereFrom";
+export { WhereEver } from "./whereFrom";

@@ -3,12 +3,24 @@ import React, { FunctionComponent } from "react";
 import { useAppDispatch } from "../../../hooks/reduxHooks";
 import { setOrigin, setDestination } from "../../../slices/nav/navSlice";
 // Helper
-import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import {
+  GooglePlaceData,
+  GooglePlaceDetail,
+  GooglePlacesAutocomplete,
+} from "react-native-google-places-autocomplete";
 import { GOOGLE_MAPS_KEY } from "@env";
 
-export const WhereFrom: FunctionComponent = () => {
-  const dispatch = useAppDispatch();
+interface IProps {
+  placeHolder: string;
+  onPress: (data: GooglePlaceData, detail: GooglePlaceDetail | null) => void;
+  toInputBoxStyles: Object;
+}
 
+export const WhereEver: FunctionComponent<IProps> = ({
+  placeHolder,
+  onPress,
+  toInputBoxStyles,
+}) => {
   return (
     <GooglePlacesAutocomplete
       query={{
@@ -16,28 +28,15 @@ export const WhereFrom: FunctionComponent = () => {
         language: "en",
       }}
       onPress={(data, details = null) => {
-        dispatch(
-          setOrigin({
-            location: details ? details.geometry.location : null,
-            description: data.description,
-          })
-        );
-        dispatch(setDestination(null));
+        onPress(data, details);
       }}
       fetchDetails={true}
       enablePoweredByContainer={false}
       minLength={2}
-      placeholder="Where from?"
+      placeholder={placeHolder}
       nearbyPlacesAPI="GooglePlacesSearch"
       debounce={400}
-      styles={{
-        container: {
-          flex: 0,
-        },
-        textInput: {
-          fontSize: 18,
-        },
-      }}
+      styles={toInputBoxStyles}
     />
   );
 };

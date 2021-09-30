@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 // Helper
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // Components
-import { EatsScreen, HomeScreen, MapScreen } from "../screens";
+import { EatsScreen, HomeScreen, MapScreen } from "../../screens";
 
 export const StackNavigator: FunctionComponent = () => {
   const Stack = createNativeStackNavigator();
