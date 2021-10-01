@@ -1,0 +1,1 @@
+export { NavFavorites } from "./NavFavorites";

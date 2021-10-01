@@ -12,6 +12,7 @@ import { StyleSheet, Image, View, SafeAreaView } from "react-native";
 // Components
 import { NavOptions } from "../../components/navOptions";
 import { WhereEver } from "../../components/inputs";
+import { NavFavorites } from "../../components/favorites";
 
 export const HomeScreen: FunctionComponent = () => {
   const dispatch = useAppDispatch();
@@ -44,6 +45,7 @@ export const HomeScreen: FunctionComponent = () => {
           toInputBoxStyles={toInputBoxStyles}
         />
         <NavOptions />
+        <NavFavorites />
       </View>
     </SafeAreaView>
   );
@@ -56,6 +58,7 @@ const styles = StyleSheet.create({
   },
   viewContainer: {
     padding: 20,
+    width: 410,
   },
   image: {
     width: 100,

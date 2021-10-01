@@ -14,6 +14,13 @@ export type NavOptionEntry = {
   screen: "EatsScreen" | "MapScreen";
 };
 
+export type Favorites = {
+  id: string;
+  icon: string;
+  location: string;
+  destination: string;
+};
+
 export type RootStackParamList = {
   RideOptionsCard: undefined;
   EatsScreen: undefined;
