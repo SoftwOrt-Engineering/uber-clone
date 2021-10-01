@@ -3,6 +3,7 @@
     "prefix": "fcws",
     "body": [
       "import React, { FunctionComponent } from \"react\";",
+      "// Native Comps",
       "import { StyleSheet, Text, View } from \"react-native\";",
       "",
       "export const ${1:ComponentName}: FunctionComponent = () => {",
