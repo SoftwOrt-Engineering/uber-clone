@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: 20,
-    paddingLeft: 5,
+    paddingLeft: 20,
     paddingRight: 20,
   },
   separator: {

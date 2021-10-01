@@ -14,6 +14,7 @@ import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 // Components
 import { WhereEver } from "../../inputs";
+import { NavFavorites } from "../../favorites";
 
 export const NavigateCard: FunctionComponent = () => {
   const navigation = useNavigation<MainScreenProp>();
@@ -44,6 +45,7 @@ export const NavigateCard: FunctionComponent = () => {
             toInputBoxStyles={toInputBoxStyles}
           />
         </View>
+        <NavFavorites />
       </View>
     </SafeAreaView>
   );
