@@ -1,7 +1,4 @@
 import React, { FunctionComponent } from "react";
-// Redux Toolkit
-import { useAppDispatch } from "../../../hooks/reduxHooks";
-import { setOrigin, setDestination } from "../../../slices/nav/navSlice";
 // Helper
 import {
   GooglePlaceData,
