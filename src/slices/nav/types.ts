@@ -21,6 +21,13 @@ export type Favorites = {
   destination: string;
 };
 
+export type UberOptions = {
+  id: string;
+  title: string;
+  multiplier: number;
+  image: string;
+};
+
 export type RootStackParamList = {
   RideOptionsCard: undefined;
   EatsScreen: undefined;
