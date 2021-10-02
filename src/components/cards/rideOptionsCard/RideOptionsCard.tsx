@@ -6,8 +6,6 @@ import { useNavigation } from "@react-navigation/native";
 import { driverOptions } from "../../../../static/options/options";
 // Native Comps
 import {
-  Image,
-  FlatList,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -17,6 +15,8 @@ import {
 import { Icon } from "react-native-elements";
 // Components
 import { Separator } from "../../separator";
+import { RideList } from "./rideList";
+import { ChooseRide } from "./chooseRide";
 
 export const RideOptionsCard: FunctionComponent = () => {
   const navigation = useNavigation<MainScreenProp>();
@@ -24,6 +24,11 @@ export const RideOptionsCard: FunctionComponent = () => {
 
   // States
   const [selected, setSelected] = useState<UberOptions | null>(null);
+
+  // Handler
+  const handleSelectItem = (entry: UberOptions) => {
+    setSelected(entry);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -43,42 +48,15 @@ export const RideOptionsCard: FunctionComponent = () => {
       </View>
       <Separator />
       <View style={styles.infoContainer}>
-        <FlatList
-          data={data}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item: { id, title, multiplier, image }, item }) => (
-            <TouchableOpacity
-              onPress={() => setSelected(item)}
-              style={[
-                styles.touchOptions,
-                {
-                  backgroundColor:
-                    selected && selected.id === id ? "lightgrey" : "white",
-                },
-              ]}
-            >
-              <Image style={styles.listImage} source={{ uri: image }} />
-              <View style={styles.ridesList}>
-                <Text style={styles.ridesHeader}>{title}</Text>
-                <Text>Travel time...</Text>
-              </View>
-              <Text style={styles.costsText}>€99</Text>
-            </TouchableOpacity>
-          )}
+        <RideList
+          entries={data}
+          selectedId={selected && selected.id}
+          selectItem={handleSelectItem}
         />
-      </View>
-      <View>
-        <TouchableOpacity
-          disabled={!selected}
-          style={[
-            styles.touchChoose,
-            { backgroundColor: !selected ? "lightgrey" : "black" },
-          ]}
-        >
-          <Text style={styles.chooseText}>
-            Choose: {selected ? selected.title : ""}
-          </Text>
-        </TouchableOpacity>
+        <ChooseRide
+          disabled={selected === null}
+          title={selected && selected.title}
+        />
       </View>
     </SafeAreaView>
   );
@@ -104,36 +82,5 @@ const styles = StyleSheet.create({
   },
   infoContainer: {
     flexGrow: 1,
-  },
-  listImage: {
-    width: 100,
-    height: 100,
-    resizeMode: "contain",
-    marginTop: -20,
-  },
-  touchOptions: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingHorizontal: 40,
-    height: 80,
-  },
-  ridesList: {
-    marginLeft: -24,
-  },
-  ridesHeader: {
-    fontSize: 24,
-  },
-  costsText: {
-    fontSize: 24,
-  },
-  touchChoose: {
-    paddingVertical: 12,
-    marginHorizontal: 16,
-  },
-  chooseText: {
-    textAlign: "center",
-    color: "white",
-    fontSize: 20,
   },
 });
