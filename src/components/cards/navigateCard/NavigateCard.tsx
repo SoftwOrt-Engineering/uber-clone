@@ -16,6 +16,7 @@ import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { WhereEver } from "../../inputs";
 import { NavFavorites } from "../../favorites";
 import { NavigateCardOptions } from "./navigateCardOptions";
+import { Separator } from "../../separator";
 
 export const NavigateCard: FunctionComponent = () => {
   const navigation = useNavigation<MainScreenProp>();
@@ -37,7 +38,7 @@ export const NavigateCard: FunctionComponent = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.textHeader}>{"Hello ${User}"}</Text>
-      <View style={styles.seperator} />
+      <Separator />
       <View style={styles.navContainer}>
         <View>
           <WhereEver
@@ -65,10 +66,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     paddingVertical: 20,
     fontSize: 24,
-  },
-  seperator: {
-    backgroundColor: "#e7e7e7",
-    height: StyleSheet.hairlineWidth,
   },
   navContainer: {
     flexShrink: 1,

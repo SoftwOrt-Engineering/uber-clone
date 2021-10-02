@@ -24,6 +24,7 @@ export type Favorites = {
 export type RootStackParamList = {
   RideOptionsCard: undefined;
   EatsScreen: undefined;
+  NavigateCard: undefined;
   MapScreen: {
     entry: NavOptionEntry;
   };
@@ -31,7 +32,7 @@ export type RootStackParamList = {
 
 export type MainScreenProp = NativeStackNavigationProp<
   RootStackParamList,
-  "EatsScreen" | "MapScreen" | "RideOptionsCard"
+  "EatsScreen" | "MapScreen" | "RideOptionsCard" | "NavigateCard"
 >;
 
 export type MapsInfo = {
