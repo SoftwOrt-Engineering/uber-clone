@@ -57,8 +57,8 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   viewContainer: {
-    padding: 20,
-    width: 410,
+    paddingHorizontal: 8,
+    width: "100%",
   },
   image: {
     width: 100,
@@ -73,7 +73,7 @@ const toInputBoxStyles = StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     borderRadius: 6,
     borderColor: "#9e9e9e",
-    width: 355,
+    width: "100%",
   },
   textInput: {
     fontSize: 18,

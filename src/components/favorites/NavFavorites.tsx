@@ -43,8 +43,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: 20,
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingHorizontal: 8,
   },
   separator: {
     backgroundColor: "#e0e0e0",

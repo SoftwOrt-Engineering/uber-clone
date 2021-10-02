@@ -38,10 +38,9 @@ export const NavOptions: FunctionComponent = () => {
 
 const styles = StyleSheet.create({
   listItem: {
-    padding: 8,
-    paddingLeft: 24,
-    paddingBottom: 32,
     paddingTop: 16,
+    paddingBottom: 8,
+    paddingHorizontal: 24,
     backgroundColor: "#e0e0e0",
     margin: 8,
     width: 160,
