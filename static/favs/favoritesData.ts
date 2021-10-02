@@ -6,7 +6,7 @@ export const favoritesData = (): Favorites[] => {
       id: "123",
       icon: "home",
       location: "Home",
-      destination: "Forstenrieder Alee 112, München, Germany",
+      destination: "Forstenrieder Allee 112, München, Germany",
     },
     {
       id: "456",
