@@ -2,18 +2,13 @@ import React, { FunctionComponent } from "react";
 // Redux Toolkit
 import { useAppSelector } from "../../hooks/reduxHooks";
 import { getOrigin } from "../../slices/nav/navSelector";
-// Types
-import { MainScreenProp } from "../../slices/nav/types";
-// Helper
-import { useNavigation } from "@react-navigation/native";
 import { screenData } from "../../../static/navMenu/screenData";
 // Native Comps
-import { FlatList, StyleSheet, TouchableOpacity } from "react-native";
+import { FlatList } from "react-native";
 import { NavOptionsItem } from "../navOptionsItem";
 
 export const NavOptions: FunctionComponent = () => {
   const data = screenData();
-  const navigation = useNavigation<MainScreenProp>();
 
   // Selectors
   const origin = useAppSelector(getOrigin);
@@ -24,25 +19,8 @@ export const NavOptions: FunctionComponent = () => {
       horizontal
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
-        <TouchableOpacity
-          style={styles.listItem}
-          onPress={() => navigation.navigate(item.screen)}
-          disabled={origin === null}
-        >
-          <NavOptionsItem entry={item} disable={origin === null} />
-        </TouchableOpacity>
+        <NavOptionsItem entry={item} disable={origin === null} />
       )}
     />
   );
 };
-
-const styles = StyleSheet.create({
-  listItem: {
-    paddingTop: 16,
-    paddingBottom: 8,
-    paddingHorizontal: 24,
-    backgroundColor: "#e0e0e0",
-    margin: 8,
-    width: 160,
-  },
-});
