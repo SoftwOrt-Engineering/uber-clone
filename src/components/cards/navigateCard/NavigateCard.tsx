@@ -15,12 +15,13 @@ import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 // Components
 import { WhereEver } from "../../inputs";
 import { NavFavorites } from "../../favorites";
+import { NavigateCardOptions } from "./navigateCardOptions";
 
 export const NavigateCard: FunctionComponent = () => {
   const navigation = useNavigation<MainScreenProp>();
   const dispatch = useAppDispatch();
 
-  const handleOnPress = (
+  const handleOnPressWhereTo = (
     data: GooglePlaceData,
     detail: GooglePlaceDetail | null = null
   ) => {
@@ -35,18 +36,22 @@ export const NavigateCard: FunctionComponent = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.text}>{"Hello ${User}"}</Text>
+      <Text style={styles.textHeader}>{"Hello ${User}"}</Text>
       <View style={styles.seperator} />
       <View style={styles.navContainer}>
         <View>
           <WhereEver
             placeHolder={"Where to?"}
-            onPress={handleOnPress}
+            onPress={handleOnPressWhereTo}
             toInputBoxStyles={toInputBoxStyles}
           />
         </View>
         <NavFavorites />
       </View>
+      <NavigateCardOptions
+        onPressRide={() => navigation.navigate("RideOptionsCard")}
+        onPressEats={() => navigation.navigate("EatsScreen")}
+      />
     </SafeAreaView>
   );
 };
@@ -56,7 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
   },
-  text: {
+  textHeader: {
     textAlign: "center",
     paddingVertical: 20,
     fontSize: 24,
