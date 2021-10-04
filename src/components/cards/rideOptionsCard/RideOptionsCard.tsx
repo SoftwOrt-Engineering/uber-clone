@@ -1,4 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
+// Redux Toolkit
+import { useAppSelector } from "../../../hooks/reduxHooks";
+import { getTravelTimeInformation } from "../../../slices/nav/navSelector";
 // Types
 import { MainScreenProp, UberOptions } from "../../../slices/nav/types";
 // Helper
@@ -22,6 +25,9 @@ export const RideOptionsCard: FunctionComponent = () => {
   const navigation = useNavigation<MainScreenProp>();
   const data = driverOptions();
 
+  // Selectors
+  const travelTimeInformation = useAppSelector(getTravelTimeInformation);
+
   // States
   const [selected, setSelected] = useState<UberOptions | null>(null);
 
@@ -30,6 +36,7 @@ export const RideOptionsCard: FunctionComponent = () => {
     setSelected(entry);
   };
 
+  console.log(travelTimeInformation);
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -44,15 +51,22 @@ export const RideOptionsCard: FunctionComponent = () => {
             color="grey"
           />
         </TouchableOpacity>
-        <Text style={styles.textHeader}>Select a Ride</Text>
+        {travelTimeInformation && (
+          <Text style={styles.textHeader}>
+            Select a Ride - {travelTimeInformation.distance.text}
+          </Text>
+        )}
       </View>
       <Separator />
       <View style={styles.infoContainer}>
-        <RideList
-          entries={data}
-          selectedId={selected && selected.id}
-          selectItem={handleSelectItem}
-        />
+        {travelTimeInformation && (
+          <RideList
+            entries={data}
+            selectedId={selected && selected.id}
+            selectItem={handleSelectItem}
+            travelInfo={travelTimeInformation}
+          />
+        )}
         <ChooseRide
           disabled={selected === null}
           title={selected && selected.title}

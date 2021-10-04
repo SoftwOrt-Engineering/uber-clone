@@ -4,7 +4,7 @@ import { Point } from "react-native-google-places-autocomplete";
 export type NavState = {
   origin: MapsInfo | null;
   destination: MapsInfo | null;
-  travelTimeInformation: string | null;
+  travelTimeInformation: TravelInfo | null;
 };
 
 export type NavOptionEntry = {
@@ -45,4 +45,16 @@ export type MainScreenProp = NativeStackNavigationProp<
 export type MapsInfo = {
   location: Point | null;
   description: string | null;
+};
+
+export type TravelInfo = {
+  distance: {
+    text: string;
+    value: number;
+  };
+  duration: {
+    text: string;
+    value: number;
+  };
+  status: string;
 };

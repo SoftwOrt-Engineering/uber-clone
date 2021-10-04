@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { NavState, MapsInfo } from "./types";
+import { NavState, MapsInfo, TravelInfo } from "./types";
 
 const initialState: NavState = {
   origin: null,
@@ -17,7 +17,10 @@ export const navSlice = createSlice({
     setDestination: (state, action: PayloadAction<MapsInfo | null>) => {
       state.destination = action.payload;
     },
-    setTravelTimeInformation: (state, action) => {
+    setTravelTimeInformation: (
+      state,
+      action: PayloadAction<TravelInfo | null>
+    ) => {
       state.travelTimeInformation = action.payload;
     },
   },
