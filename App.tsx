@@ -20,7 +20,7 @@ export default function App() {
           <StatusBar style="auto" />
           <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
-            keyboardVerticalOffset={Platform.OS === "ios" ? -64 : 0}
+            keyboardVerticalOffset={Platform.OS === "ios" ? -54 : 0}
             style={{ flex: 1 }}
           >
             <StackNavigator />
