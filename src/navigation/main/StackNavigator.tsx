@@ -20,7 +20,7 @@ export const StackNavigator: FunctionComponent = () => {
         name="MapScreen"
         component={MapScreen}
         options={{
-          headerShown: true,
+          headerShown: false,
         }}
       />
       <Stack.Screen

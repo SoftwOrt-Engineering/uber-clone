@@ -29,6 +29,7 @@ export type UberOptions = {
 };
 
 export type RootStackParamList = {
+  HomeScreen: undefined;
   RideOptionsCard: undefined;
   EatsScreen: undefined;
   NavigateCard: undefined;
@@ -39,7 +40,7 @@ export type RootStackParamList = {
 
 export type MainScreenProp = NativeStackNavigationProp<
   RootStackParamList,
-  "EatsScreen" | "MapScreen" | "RideOptionsCard" | "NavigateCard"
+  "EatsScreen" | "MapScreen" | "RideOptionsCard" | "NavigateCard" | "HomeScreen"
 >;
 
 export type MapsInfo = {

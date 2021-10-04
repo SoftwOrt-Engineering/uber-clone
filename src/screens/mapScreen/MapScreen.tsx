@@ -2,18 +2,19 @@ import React, { FunctionComponent, useEffect } from "react";
 // Redux Toolkit
 import { useAppDispatch } from "../../hooks/reduxHooks";
 import { setDestination } from "../../slices/nav/navSlice";
-// Helper
-import { RouteProp, useRoute } from "@react-navigation/native";
 // Types
-import { RouteParamListMap } from "./types";
+import { MainScreenProp } from "../../slices/nav/types";
+// Helper
+import { useNavigation } from "@react-navigation/native";
 // Native Comps
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 // Components
 import { Map } from "../../components/map";
 import { StackNavMapScreen } from "../../navigation";
+import { Icon } from "react-native-elements";
 
 export const MapScreen: FunctionComponent = () => {
-  const route = useRoute<RouteProp<RouteParamListMap, "entry">>();
+  const navigation = useNavigation<MainScreenProp>();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -22,6 +23,12 @@ export const MapScreen: FunctionComponent = () => {
 
   return (
     <View>
+      <TouchableOpacity
+        style={styles.menuButton}
+        onPress={() => navigation.navigate("HomeScreen")}
+      >
+        <Icon name="chevron-left" type="font-awesome" size={20} />
+      </TouchableOpacity>
       <View style={styles.mapContainer}>
         <Map />
       </View>
@@ -33,6 +40,20 @@ export const MapScreen: FunctionComponent = () => {
 };
 
 const styles = StyleSheet.create({
+  menuButton: {
+    position: "absolute",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    top: 32,
+    left: 24,
+    zIndex: 50,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor:
+      "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  },
   mapContainer: {
     height: "50%",
   },
